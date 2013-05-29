@@ -10,6 +10,12 @@
 </head>
 <body>
 
+	<nav id="top">
+		<a class="html" href="#html" data-target="html">HTML</a>
+		<a class="css" href="#css" data-target="css">CSS</a>
+		<a class="html" href="#bonus" data-target="bonus">Bonus Round</a>
+	</nav>
+
 	<section id="html">
 		<header>
 			<h1>HTML</h1>
@@ -309,6 +315,20 @@
 
 				<p>Note that even though the default behaviour of an <code>a</code> is inline, it is often used to wrap a block, and can then be set as a block itself (this pattern has been around forever, but no longer breaks any rules in HTML 5).</p>
 
+				<h2>Comments</h2>
+
+				<p>Even though HTML is not exactly programming, every programmer is taught to write good documentation! The nature of HTML means that it does not need long explanations of why you have chosen one block over another, and since there is no real interactivity in HTML itself (coding logic should be in Javascript, CSS or a back&ndash;end script) comments are not strictly necessary. But they do exist:</p>
+
+				<pre>
+&lt;!-- This is a HTML comment. --&gt;
+
+&lt;![CDATA[
+  This is an XML character data block, used to hide content from a validator. You may see Javascript blocks wrapped in these.
+]]&gt;
+				</pre>
+
+				<p>Comments are often the poor man&rsquo;s way of saving blocks of content for later, but remember that anyone can view the source of HTML and see it plainly. A better way of saving content you may want later is either copying it to a different file entirely, or using a proper version control system like <a href="http://git-scm.com">Git</a>.</p>
+
 				<ul class="ref">
 					<li><a href="http://html5doctor.com/element-index">Great, modern reference of HTML elements</a></li>
 				</ul>
@@ -480,18 +500,47 @@
 		<nav>
 			<li><a href="#c2-1" data-target="c2-1">How to CSS</a></li>
 			<li><a href="#c2-2" data-target="c2-2">Webfonts</a></li>
-			<li><a href="#c2-5" data-target="c2-3">Vendor tags and evolving standards</a></li>
-			<li><a href="#c2-3" data-target="c2-4">Transitions</a></li>
-			<li><a href="#c2-4" data-target="c2-5">Transforms</a></li>
+			<li><a href="#c2-3" data-target="c2-3">Transitions &amp; Transforms</a></li>
 		</nav>
 		<section>
 			<article id="c2-1">
 				<h1>How to CSS</h1>
 
-reset
+				<p>CSS (Cascading Style Sheets) are the visual styles applied to the structured content of your HTML. Styles are defined by setting properties for each element, and properties may be inherited through the structure set in your HTML.</p>
 
-				<p><a href="http://necolas.github.io/normalize.css/">Normalize.css</a></p>
-				<p><a href="http://css-tricks.com/">CSS&ndash;Tricks</a></p>
+				<p>The easiest way to explain this will be to look at <a href="app.css">the stylesheet for this page!</a></p>
+
+				<h2>Notes on CSS</h2>
+
+				<ul>
+					<li><code>@import</code> is the CSS way of including another file, this is the equivalent <code>link</code> in HTML. These two imports are including a global normaliser and a webfont library, these will both be discussed below.</li>
+					<li>Properties are separated by a semi&ndash;colon <code>;</code> and wrapped with curly braces <code>{</code> and <code>}</code>.</li>
+					<li>Definitions that begin with a <code>.</code> are referring to any HTML element with a class by that name.</li>
+					<li>Definitions that begin with a <code>#</code> are referring to the unique HTML element with that id.</li>
+					<li>Pseudo&ndash;selectors begin with a colon <code>:</code> and are specific to certain HTML elements. <code>a</code> has <code>:hover</code>, for example, a mutation effect that allows you to style when the user&rsquo;s mouse hovers over that element. :hover is the entire basis of CSS rollover menus.</li>
+					<li>Comments begin with <code>/*</code> and end <code>*/</code>. Note that, by convention, I list the font stacks and colours used (ie. this is not required).</li>
+					<li>Like any code, there are numerous ways to format CSS &mdash; single property per line or stacked, indented or left aligned, full property or minimised. The coding style is purely choice, it has little if any impact. I have my own coding style developed over many years of doing this, but very few web professionals agree on this!</li>
+					<li>Units can be expressed in <code>px</code> for pixels, <code>em</code> for ems (a typographic unit, the width of the capital M in the selected typeface) or <code>%</code> for percent of an element&rsquo;s parent container.</li>
+					<li>Colours can be expressed in hex, eg. <code>#fff</code> or rgb (red, green, blue) values eg. <code>rgb(255,255,255)</code>. There is also a variant of rgb called rgba, where the a is an alpha (transparency) channel eg. <code>rgba(255,255,255,0.4)</code>. This definition would be the same colour as the other two, but only at 40% opacity.</li>
+					<li>Properties can be stacked, eg. <code>margin:0;</code> is the same as <code>margin:0 0 0 0;</code> (top right bottom left). There are also the more complicated stacks such as two&ndash;point <code>margin:0 1em;</code> which is the same as <code>margin:0 1em 0 1em;</code> (bottom and left are inherited from top and right) and three&ndash;point <code>margin:1em 1em 0;</code> which is the same as <code>margin:1em 1em 0 1em;</code> (it inherits the left from right). Complicated!</li>
+					<li>Some properties can be grouped or minimised, eg. <code>border:1px solid #000;</code> is the same as <code>border-width:1px; border-style:solid; border-color:#000;</code> (in fact, the border property is a helper for setting all four groups of border properties at once, so it is actually equivalent to <code>border-left-width:1px; border-left-style:solid; border-left-color:#000; border-right-width:1px; border-right-style:solid; border-right-color:#000; border-top-width:1px; border-top-style:solid; border-top-color:#000; border-bottom-width:1px; border-bottom-style:solid; border-bottom-color:#000;</code> &mdash; this is why I call it a helper)</li>
+					<li>Font can by minimised as <code>font:italic 13px/1.2 "Source Sans Pro", Arial, Helvetica, sans-serif;</code> but I would recommend against doing so. Some properties are better to define separately, and parts of this particular example will change often enough to warrant it. Font base size should be set in pixels once at a high level (eg. <code>body</code>), and manipulated relatively with <code>em</code>s whenever you can.</li>
+					<li><code>line-height</code> can take units, but works a lot better without. Unitless line-height properties work as a ratio of the computed font size (ie. <code>line-height:1.2;</code> will calculate the line height as 120% of the font size).</li>
+				</ul>
+
+				<p>Rather than list all the properties here, I&rsquo;ll instead link to this <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference">definitive list of properties</a> published by Mozilla.</p>
+ 
+				<h2>Resets</h2>
+
+				<p>In the early days of the web when browsers had their own set of default properties on elements, a stylesheet known as a <code>global reset</code> was needed to set everything in a browser back to a consistent default. This allowed developers to make a single stylesheet that could be used across all browsers, without needing to tune things separately for each.</p>
+
+				<p>Browsers are more uniform now, but still have significant differences in their default styling. A more modern approach to resetting style is known as <code>normalize</code> (as with the property "<code>color</code>", most terms are defined by Americans and have their spelling). Unlike the reset which took everything back to 0, normalize sets reasonable defaults instead, providing a safe starting point to apply your own styles.</p>
+
+				<ul class="ref">
+					<li><a href="http://necolas.github.io/normalize.css/">Normalize.css</a></li>
+					<li><a href="http://css-tricks.com/">CSS&ndash;Tricks is a great resource</a></li>
+					<li><a href="http://hex.colorrrs.com/">Simple Hex to RGB colour converter</a></li>
+				</ul>
 			</article>
 
 			<hr>
@@ -499,15 +548,22 @@ reset
 			<article id="c2-2">
 				<h1>Webfonts</h1>
 
-				<p>As the web matures, a lot of the design language from print
+				<p>The options for changing typography on the web were not great until Javascript&ndash;served solutions (like Typekit) were launched. CSS has always had a <code>font-face</code> property that allows the web developer to reference a font asset, but licensing expensive font assets from the foundries had been difficult until then. Techniques like SIFR (a flash&ndash;embedded solution) and Cufon (a Javascript translation of the font asset), as well as rendering the font out as an image were all in use, but none of them were ideal. In general, there was a bare minimum set of fonts known as the "Web Fonts" that you could expect all browsers to be able to use. This included Arial, Georgia, Times New Roman, Century Gothic, Courier New, Trebuchet MS, Tahoma and Verdana (fonts that came pre&ndash;installed on Windows).</p>
 
-					.
+				<p>There are a few good services in the space now, including:</p>
 
-				<p>The options for changing typography on the web were severely limited until Typekit was launched in 2009. Typekit, Google Fonts and the new Adobe Edge Webfonts (the free countarpart of Typekit)
+				<ul>
+					<li><a herf="http://typekit.com">Typekit</a> the major innovator, and the most popular service now owned by Adobe (arguably the biggest font foundry)</li>
+					<li><a href="https://edgewebfonts.adobe.com/fonts">Adobe Edge Web Fonts</a> a service that uses the same technology as Typekit to serve free fonts</li>
+					<li><a href="http://www.google.com/fonts/">Google Fonts</a> a similar service that only serves free fonts, some of which are quite good</li>
+					<li><a href="http://www.fontsquirrel.com/tools/webfont-generator">Font Squirrel</a> has an online tool to generate the necessary assets to display on all browsers, but beware that using this <del>may not be</del> is rarely covered in the license of the font you wish to use</li>
+				</ul>
 
-				<p>Google fonts, typekit, fontsquirrel, edge webfonts</p>
+				<h2>Symbol fonts</h2>
 
-				<p>Symbol fonts: fontawesome</p>
+				<p>Once again, the techniques and ideas have been around for a long time, but the inclusion of an open source icon project known as <a href="http://fortawesome.github.io/Font-Awesome/">Fontawesome</a> in <a href="http://twitter.github.io/bootstrap/">Twitter Bootstrap</a> (a design framework) has popularised the concept of symbol fonts. A symbol font is made up of vectors of icons instead of characters, and can be used to display crisp icons on high resolution displays (like Apple&rsquo;s various retina devices or the recent Android phones).</p>
+
+				<p>Another alternative to this is SVG (scalable vector graphics), an older derivative of XML that uses a code structure rather than binary data to describe a vector graphic. A good resource for SVG icons is <a href="http://thenounproject.com/">The Noun Project</a>.</p>
 
 				<ul class="ref">
 					<li><a href="http://hellohappy.org/beautiful-web-type/">Beautiful Web Type</a></li>
@@ -518,20 +574,51 @@ reset
 			<hr>
 
 			<article id="c2-3">
-				<h1>Vendor tags and evolving standards</h1>
+				<h1>Transitions &amp; Transforms</h1>
+
+				<p>Transitions and transforms are relatively new techniques that can perform simple animations. Developers once relied on a technology called Flash to do this, but most of what was done in Flash can now be done with CSS.</p>
+
+				<h2>Transitions</h2>
+
+				<p>A transition is an extra property set in CSS that animates in between two defined states. eg.</p>
+
+				<div class="trans-example">Put your mouse here</div>
+
+				<p>Transitions are only supported on webkit&ndash;family browsers (Safari, Chrome, mobile browsers) and Firefox, but that still represents fairly good coverage. IE will probably catch up.</p>
+
+				<h2>Transforms</h2>
+
+				<p>Transforms are a way of modifying the shape and orientation of elements. eg.</p>
+
+				<div class="trans-example-2">Put your mouse here</div>
+
+				<p>And the combination of transform and transition:</p>
+
+				<div class="trans-example-3">Put your mouse here</div>
+
+				<h2>Vendor prefixes</h2>
+
+				<p>When experimenting with new technologies, browser vendors will often add their prefix to a property until they are happy with the performance and/or the standard is solid. An example of this is <code>border&ndash;radius</code>, a property to round the corners of an element. This has had such strong support from browser makers that all modern browsers now support it, but initially they were tested with <code>-moz-border-radius</code> for Firefox and <code>-webkit-border-radius</code> for Safari (and later Chrome). This practice still continues today, and it means that if you want to use a new technique, you may need to set it against a number of different vendors. Current best practice is to list all vendor prefixed properties, then an unprefixed one for future proofing the eventual support. eg.</p>
+
+				<pre>
+p {
+  -moz-super-property:6px rgba(0,0,0,0.3);
+  -webkit-super-property:6px rgba(0,0,0,0.3);
+  -ms-super-property:6px rgba(0,0,0,0.3);
+  super-property:6px rgba(0,0,0,0.3);
+}
+				</pre> 
+
+				<p>Where <code>-moz</code> targets Firefox, <code>-webkit</code> targets Safari, Chrome and mobile browsers and <code>-ms</code> targets Internet Explorer version 9+. Google recently announced that they are formally moving Chrome away from webkit, but they do not intend to use a vendor prefix with their new engine.</p>
+
+				<ul class="ref">
+					<li><a href="http://codepen.io/neoberg/pen/istyp">A good transform and transition example</a></li>
+					<li><a href="http://css-tricks.com/almanac/properties/t/transition/">CSS&ndash;Tricks on transitions</a></li>
+					<li><a href="http://css-tricks.com/almanac/properties/t/transform/">CSS&ndash;Tricks on transforms</a></li>
+				</ul>
 			</article>
 
 			<hr>
-
-			<article id="c2-4">
-				<h1>Transitions</h1>
-			</article>
-
-			<hr>
-
-			<article id="c2-5">
-				<h1>Transforms</h1>
-			</article>
 		</section>
 	</section>
 
@@ -548,8 +635,32 @@ reset
 			<article id="c3-1">
 				<h1>Markdown</h1>
 
+				<p>Markdown is a newer markup language created by John Gruber, and later Aaron Swartz. The purpose of markdown is allowing writers to write in a simplified text format, and then convert this into HTML. Markdown is becoming popular as a way of quickly structuring content, especially in a CMS.</p>
+
+				<p>Markdown looks like this:</p>
+
+				<pre class="md">
+# Heading 1
+
+Paragraph is defined by line space.
+
+This second paragraph has an *italic* word and a **bold** one, for example.
+
+[A link to a great markdown resource!](http://howtomarkdown.com)
+				</pre>
+
+				<p>This would render to:</p>
+
+				<pre>
+&lt;h1&gt;Heading 1&lt;/h1&gt;
+&lt;p&gt;Paragraph is defined by line space.&lt;/p&gt;
+&lt;p&gt;This second paragraph has an &lt;em&gt;italic&lt;/em&gt; word and a &lt;strong&gt;bold&lt;/strong&gt; one, for example.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://howtomarkdown.com&gt;A link to a great markdown resource!&lt;/a&gt;&lt;/p&gt;
+				</pre>
+
 				<ul class="ref">
-					<li><a href="http://howtomarkdown.com">http://howtomarkdown.com</a></li>
+					<li><a href="http://daringfireball.net/projects/markdown/syntax">The official reference</a></li>
+					<li><a href="http://howtomarkdown.com">A simple one&ndash;page reference</a></li>
 				</ul>
 			</article>
 
@@ -558,7 +669,9 @@ reset
 			<article id="c3-2">
 				<h1>Pre&ndash;processed CSS</h1>
 
-				<p>Sass (SCSS)</p>
+				<ul class="ref">
+					<li><a href="http://sass-lang.com">The official Sass site</a></li>
+				</ul>
 			</article>
 
 			<hr>
@@ -566,7 +679,11 @@ reset
 			<article id="c3-3">
 				<h1>Pre&ndash;processed HTML</h1>
 
-				<p>HAML, Yaml, Slim, Liquid</p>
+				<ul class="ref">
+					<li><a href="http://slim-lang.com">The self&ndash; describing Slim site</a></li>
+					<li><a href="http://haml.info">HAML</a></li>
+					<li><a href="http://wiki.shopify.com/Liquid">Shopify&rsquo;s Liquid</a></li>
+				</ul>
 			</article>
 		</section>
 	</section>

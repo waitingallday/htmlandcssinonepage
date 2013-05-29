@@ -9,7 +9,7 @@
 // Site specific
 $(function() {
   $.scrollTo(0);
-  $("section nav").find("a").on("click", function(e){
+  $("nav").find("a").on("click", function(e){
     e.preventDefault();
     $.scrollTo("#"+$(this).data("target"), 400);
   });
