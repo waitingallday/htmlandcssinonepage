@@ -19,7 +19,7 @@ body {background:url(bg.jpg); font-family:"Source Sans Pro", Arial, Helvetica, s
 strong {font-weight:700;}
 h1 {font-family:"Alfa Slab One", Georgia, "Times New Roman", Times, serif; font-weight:400; font-size:3em; text-shadow:0 0 3px rgba(0,0,0,0.4); color:#fff;}
 pre,
-code {font-family:"Source Code Pro", "Courier New", fixed; font-weight:400; border-bottom:1px solid rgba(0,0,0,0.2); background:rgba(255,255,255,0.2); padding:3px; margin:0 2px;}
+code {font-family:"Source Code Pro", "Courier New", fixed; font-weight:400; border-bottom:1px solid rgba(0,0,0,0.1); background:rgba(255,255,255,0.2); padding:3px; margin:0 2px;}
 h1,
 h2,
 ol,
@@ -28,15 +28,21 @@ dl,
 pre,
 nav,
 table,
+form,
 p {padding:0 0 1em; max-width:1000px; margin:0 auto;}
 dl {line-height:2;}
 dt {float:left; padding-right:1em; text-align:right; width:8em;}
+
+fieldset {margin:0.4em 0; padding:1em; border-color:rgba(0,0,0,0.1);}
+legend {font-size:0.8em; color:rgba(0,0,0,0.4); text-transform:uppercase;}
+input[type="submit"] {padding:0.2em 0.6em; margin:1em;}
 
 section {margin:0; padding:1em 0 0;}
 section section {margin:0; padding:1em 0; background:rgba(255,255,255,0.8); border-top:1px solid #000; box-shadow:0 0 6px 3px rgba(0,0,0,0.4);}
 section h1,
 section h2,
 section nav li {padding:0 16px;}
+section hr {margin:2em auto; height:1px; border:0; border-bottom:1px solid rgba(0,0,0,0.1); background:transparent;}
 nav {list-style-type:square; list-style-position:inside; padding:0 0 1em; color:#fff;}
 nav li {font-size:1.4em;}
 nav li:hover {background:rgba(255,255,255,0.7); color:#000;}
@@ -47,23 +53,38 @@ nav a:hover {color:#000;}
 #bonus {background:transparent;}
 #css {background:url(bgr.jpg);}
 
-article {padding-bottom:1em;}
+article {padding:1em 0;}
 article h1 {font-size:1.6em; padding:0 16px 1em;}
-article h2 {padding:1em 16px; font-size:1.2em; color:#444;}
+article h2 {padding:1em 16px; font-size:1.2em; color:#444; clear:left;}
 article a {color:#36c; font-weight:700; text-decoration:underline;}
 article a:hover {color:#000;}
 article p {padding:0 16px 1em; line-height:1.4;}
-.ref {list-style-type:square; color:#fff; background:rgba(0,0,0,0.8); padding:1em 16px;}
+.ref {list-style-type:square; color:#fff; background:rgba(0,0,0,0.8); padding:1em 16px; margin-top:0.4em;}
 .ref a {color:#fff;}
 .ref a:hover {color:#36c;}
 article pre {padding:1em 16px 0; margin-bottom:1em;}
 article pre span {color:#d22;}
+article pre span span {color:#36c;}
 article ol,
 article ul {list-style-position:inside;}
 article li {padding-bottom:0.4em;}
 
+article table {min-width:20em;}
 article th {background:rgba(0,0,0,0.8); color:#fff; padding:0.3em 1em; text-align:left; border:1px solid #000;}
 article td {color:#000; padding:0.3em 1em; border:1px solid #000;}
+
+article fieldset {width:50%;}
+article label {float:left; clear:left; width:7em; line-height:2em;}
+article input,
+article select,
+article textarea {float:left; width:13em; line-height:1.2em; padding:0.2em 0.4em; margin:0.2em 0; border:1px solid #ddd;}
+article textarea {height:6em; width:18em;}
+article input:focus {border-color:#d22;}
+article .terms label {width:17em;}
+article .terms div {float:left; padding-left:1em;}
+article .terms div label {clear:none; width:auto;}
+article .terms div input {clear:left; width:auto; margin-top:0.6em; margin-right:0.4em;}
+article input[type="submit"] {float:none; width:auto; background:#36c; color:#fff; font-weight:700; padding:0.4em 1em;}
 
 #css article a {color:#d22;}
 #css article a:hover {color:#000;}

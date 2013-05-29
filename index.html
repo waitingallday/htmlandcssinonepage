@@ -20,7 +20,7 @@
 			<li><a href="#c1-3" data-target="c1-3">Attributes</a></li>
 			<li><a href="#c1-4" data-target="c1-4">Building a page</a></li>
 			<li><a href="#c1-5" data-target="c1-5">Character entities</a></li>
-			<li><a href="#c1-6" data-target="c1-6">Better structure with HTML5</a></li>
+			<li><a href="#c1-6" data-target="c1-6">Better structure with HTML 5</a></li>
 		</nav>
 		<section>
 			<article id="c1-1">
@@ -48,11 +48,17 @@
 
 				<p>The modern web uses parts of several different standards: XML and its parent SGML, XHTML 1.1, HTML 3.2, HTML 4.01 and finally HTML 5. A lot of the <a href="http://msdn.microsoft.com/en-us/expression/dd439540.aspx">stricter rules</a> and <a href="http://www.cs.tut.fi/~jkorpela/HTML3.2/5.24.html">bad habits</a> learned over time came from HTML 3.2 and XHTML 1.1.</p>
 
+				<h2>HTML 5?</h2>
+
+				<p>As a rapidly evolving specification, HTML 5 has many features that don&rsquo;t even exist in browsers yet. It&rsquo;s worth noting here, that when I mention HTML 5 I&rsquo;m talking very specifically about the HTML part of the spec. There are <a href="http://platform.html5.org/">many other areas</a> now devoted to related and dependent web technologies.</p>
+
 				<ul class="ref">
 					<li><a href="http://info.cern.ch/">More history about the web at CERN</a></li>
 					<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML?menu">Mozilla&rsquo;s excellent HTML documentation</a></li>
 				</ul>
 			</article>
+
+			<hr>
 
 			<article id="c1-2">
 				<h1>HTML building blocks</h1>
@@ -71,7 +77,7 @@
 					<dt><code>h3&ndash;h5</code></dt><dd>Further subheadings (levels 3&ndash;5)</dd>
 					<dt><code>p</code></dt><dd>Paragraph, the main page block</dd>
 					<dt><code>pre</code></dt><dd>Pre&ndash;formatted block, useful for preserving line breaks</dd>
-					<dt><code>blockquote</code></dt><dd>A block that can be targetted for alternate styling</dd>
+					<dt><code>blockquote</code></dt><dd>An indented block that can be targetted for alternate styling</dd>
 					<dt><code>small</code></dt><dd>The small print</dd>
 					<dt><code>hr</code></dt><dd>Horizontal rule</dd>
 					<dt><code>div</code></dt><dd>A structural division</dd>
@@ -121,7 +127,7 @@
 					<dt>Puppy</dt><dd>A young dog</dd>
 				</dl>
 
-				<p>And then there&rsquo;s the <code>table</code>. In the early days, tables were often (mis)used as a way of strictly defining layout, but we now have the full range of CSS to do this instead. Tables should only be used to present tabular data! It&rsquo;'s also a lot more complicated than the above structures, as the lowest level blocks describe a cell with a row.</p>
+				<p>And then there&rsquo;s the <code>table</code>. In the early days, tables were often (mis)used as a way of strictly defining layout, but we now have the full range of CSS to do this instead. Tables should only be used to present tabular data! It&rsquo;s also a lot more complicated to mark up than the above structures, as you can see in the example below.</p>
 
 				<dl>
 					<dt><code>table</code></dt><dd>Table</dd>
@@ -177,7 +183,114 @@
 
 				<h2>Forms</h2>
 
-				<p>Forms are an important way of interacting with the user, but that&rsquo;s a whole training session on its own! For the sake of this session, I&rsquo;m going to skip <code>form</code>, except to mention it as a block&ndash;level element that contains controls that a user can manipulate.</p>
+				<p>Forms are an important way of interacting with the user, by providing controls that a user can manipulate. Forms are a big part of HTML, particularly in web applications, and can become complicated very easily. I&rsquo;ll only touch on these elements briefly:</p>
+
+				<dl>
+					<dt><code>form></code></dt><dd>The form container</dd>
+					<dt><code>fieldset</code></dt><dd>A structural group of fields</dd>
+					<dt><code>legend</code></dt><dd>Title for the fieldset</dd>
+					<dt><code>label</code></dt><dd>Title for the field</dd>
+					<dt><code>input</code></dt><dd>The main form field, can be text, radiobutton or checkbox</dd>
+					<dt><code>select</code></dt><dd>Select an item from a list of options</dd>
+					<dt><code>option</code></dt><dd>A select item</dd>
+					<dt><code>textbox</code></dt><dd>Multi&ndash;line text</dd>
+				</dl>
+
+				<p>eg.</p>
+
+				<pre>
+&lt;form action="/contact" method="post"&gt;
+  &lt;fieldset&gt;
+    &lt;legend&gt;User Details&lt;/legend&gt;
+
+    &lt;label for="user_name"&gt;Username&lt;/label&gt;
+    &lt;input type="text" id="user_name" name="user[name]" placeholder="steve" maxlength="20"&gt;
+
+    &lt;label for="user_email"&gt;Email&lt;/label&gt;
+    &lt;input type="text" id="user_email" name="user[email]" placeholder="steve@example.com" maxlength="20"&gt;
+
+    &lt;label for="user_password"&gt;Password&lt;/label&gt;
+    &lt;input type="password" id="user_password" name="user[password]" maxlength="20"&gt;
+
+    &lt;label for="user_membership"&gt;Membership&lt;/label&gt;
+    &lt;select id="user_membership" name="user[membership]"&gt;
+      &lt;option value=""&gt;Please select&lt;/option&gt;
+      &lt;option value="life"&gt;Fellow&lt;/option&gt;
+      &lt;option value="full"&gt;Member&lt;/option&gt;
+      &lt;option value="part"&gt;Associate&lt;/option&gt;
+    &lt;/select&gt;
+
+    &lt;label for="user_bio"&gt;Bio&lt;/label&gt;
+    &lt;textarea id="user_bio" name="user[bio]" placeholder="Please write a short bio"&gt;&lt;/textarea&gt;
+  &lt;/fieldset&gt;
+
+  &lt;fieldset class="terms"&gt;
+    &lt;legend&gt;Terms of Service&lt;/legend&gt;
+
+    &lt;label&gt;Do you agree with the terms?&lt;/label&gt;
+    &lt;div&gt;
+      &lt;input type="radio" id="user_terms_yes" name="user[terms]" value="yes"&gt;
+      &lt;label for="user_terms_yes"&gt;Yes&lt;/label&gt;
+      &lt;input type="radio" id="user_terms_no" name="user[terms]" value="no"&gt;
+      &lt;label for="user_terms_no"&gt;No&lt;/label&gt;
+    &lt;/div&gt;
+
+    &lt;label for="user_newsletter"&gt;Would you like to recieve our newsletter?&lt;/label&gt;
+    &lt;div&gt;
+      &lt;input type="checkbox" id="user_newsletter" name="user[newsletter]" value="on"&gt;
+    &lt;/div&gt;
+  &lt;/fieldset&gt;
+
+  &lt;input type="submit" value="Sign up!"&gt;
+&lt;/form&gt;
+				</pre>
+
+				<form action="/contact" method="post" onsubmit="return false">
+				  <fieldset>
+				    <legend>User Details</legend>
+
+				    <label for="user_name">Username</label>
+				    <input type="text" id="user_name" name="user[name]" placeholder="steve" maxlength="20">
+
+				    <label for="user_email">Email</label>
+				    <input type="text" id="user_email" name="user[email]" placeholder="steve@example.com" maxlength="20">
+
+				    <label for="user_password">Password</label>
+				    <input type="password" id="user_password" name="user[password]" maxlength="20">
+
+				    <label for="user_membership">Membership</label>
+				    <select id="user_membership" name="user[membership]">
+				      <option value="">Please select</option>
+				      <option value="life">Fellow</option>
+				      <option value="full">Member</option>
+				      <option value="part">Associate</option>
+				    </select>
+
+				    <label for="user_bio">Bio</label>
+				    <textarea id="user_bio" name="user[bio]" placeholder="Please write a short bio"></textarea>
+ 				  </fieldset>
+
+				  <fieldset class="terms">
+				    <legend>Terms of Service</legend>
+
+				    <label>Do you agree with the terms?</label>
+				    <div>
+				      <input type="radio" id="user_terms_yes" name="user[terms]" value="yes">
+				      <label for="user_terms_yes">Yes</label>
+				      <input type="radio" id="user_terms_no" name="user[terms]" value="no">
+				      <label for="user_terms_no">No</label>
+				    </div>
+
+				    <label for="user_newsletter">Would you like to recieve our newsletter?</label>
+				    <div>
+				      <input type="checkbox" id="user_newsletter" name="user[newsletter]" value="on">
+				    </div>
+				  </fieldset>
+
+				  <input type="submit" value="Sign up!">
+				</form>
+
+				<p>Play around with the form above, and see if you can match the code to the controls.</p>
 
 				<h2>Inline elements</h2>
 
@@ -201,6 +314,8 @@
 				</ul>
 			</article>
 
+			<hr>
+
 			<article id="c1-3">
 				<h1>Attributes</h1>
 
@@ -217,7 +332,11 @@
 				<p>Another one you may have seen is the <code>alt</code> attribute of an <code>img</code> element (often referred to as an <em>alt tag</em>). This is an important accessibility feature that people with disabilities can use to describe what is in the image, if they&rsquo;re not able to visually see it. In many large organisations it is a legal requirement to include appropriate alt attributes on images.</p>
 
 				<p>Two further attributes that will become important when we discuss CSS later are <code>class</code> and <code>id</code>. As a general definition, class can be used on multiple elements while id should always refer to a single element only. More on this later.</p>
+
+				<p>You may have noticed <code>name</code> in the form controls above, these are used by server&ndash;side scripts to recieve the user input information. Also, <code>input</code> has a few different <code>type</code>s. Each <code>label</code> in the form has a <code>for</code> attribute pointing to its parent control&rsquo;s <code>id</code>.</p>
 			</article>
+
+			<hr>
 
 			<article id="c1-4">
 				<h1>Building a page</h1>
@@ -258,6 +377,8 @@
 				</ul>
 			</article>
 
+			<hr>
+
 			<article id="c1-5">
 				<h1>Character entities</h1>
 
@@ -287,10 +408,12 @@
 				</ul>
 			</article>
 
-			<article id="c1-6">
-				<h1>Better structure with HTML5</h1>
+			<hr>
 
-				<p>Browsers have included a number of modern additions from HTML 5 to the set of elements that we can use:</p>
+			<article id="c1-6">
+				<h1>Better structure with HTML 5</h1>
+
+				<p>Modern browsers have added a number of elements from HTML 5 to the set that we can use:</p>
 
 				<dl>
 					<dt><code>header</code></dt><dd>Header section</dd>
@@ -303,9 +426,9 @@
 					<dt><code>figcaption</code></dt><dd>Caption that goes in a figure</dd>
 				</dl>
 
-				<p>Note that, in practice, most of these elements are simply pre&ndash;styled <code>div</code>s. A popular <em>polyfill</em> (a library to replicate new technology on old software) called <code>html5shiv</code> does exactly this for IE6-8 since they do not support these elements.</p>
+				<p>In practice, most of these elements are simply pre&ndash;styled <code>div</code>s. A popular <em>polyfill</em> (a library to replicate new technology on old software) called <code>html5shiv</code> does exactly this for IE6-9, Safari 3 and Firefox 3 since they do not support these elements.</p>
 
-				<p>Other elements have been reshuffled, given semantic meaning, or had semantic meaning taken away. Occasionally these changes are reversed a few months later. It&rsquo;s not worth worrying about on a day&ndash;to&ndash; basis, but it <em>is</em> worth keeping up, so that you know you&rsquo;re doing the best with what is available!</p>
+				<p>Other elements have been reshuffled, given semantic meaning, or had semantic meaning taken away. Occasionally these changes are reversed a few months later. It&rsquo;s not worth worrying about on a day&ndash;to&ndash; basis, but it <em>is</em> worth keeping an eye on it, so that you know you&rsquo;re doing the best with <a href="http://caniuse.com">what is available!</a></p>
 
 				<h2>Nested headings</h2>
 
@@ -325,9 +448,9 @@
     &lt;aside&gt;
       &lt;h1&gt;Heading for first aside&lt;/h1&gt;
     &lt;/aside&gt;
-    &lt;aside&gt;
+    <span>&lt;aside&gt;
       &lt;h1&gt;Heading for second aside&lt;/h1&gt;
-    &lt;/aside&gt;
+    &lt;/aside&gt;</span>
   &lt;/article&gt;</span>
 &lt;/section&gt;
 				</pre>
@@ -341,11 +464,10 @@
 				<ul class="ref">
 					<li><a href="https://github.com/aFarkas/html5shiv">html5shiv on Github</a></li>
 					<li><a href="http://html5doctor.com/">The HTML5 Doctor, really great advice about all the new things</a></li>
-					<li><a href="http://diveintohtml5.info/index.html">A complete HTML5 book online!</a></li>
-					<li><a href="http://www.wufoo.com/html5/">The current state of HTML5 forms</a></li>
-					<li><a href="http://caniuse.com">Browser support tables for HTML5 and CSS3</a></li>
-					<li><a href="http://www.html5rocks.com/en/">Google&rsquo;s HTML5 propaganda page</a></li>
-					<li><a href="http://www.apple.com/html5/">Apple&rsquo;s HTML5 propaganda page</a></li>
+					<li><a href="http://diveintohtml5.info/index.html">A complete HTML 5 book online</a></li>
+					<li><a href="http://www.wufoo.com/html5/">The current state of HTML 5 forms</a></li>
+					<li><a href="http://www.html5rocks.com/en/">Google&rsquo;s HTML 5 propaganda page</a></li>
+					<li><a href="http://www.apple.com/html5/">Apple&rsquo;s HTML 5 propaganda page</a></li>
 				</ul>
 			</article>
 		</section>
@@ -372,6 +494,8 @@ reset
 				<p><a href="http://css-tricks.com/">CSS&ndash;Tricks</a></p>
 			</article>
 
+			<hr>
+
 			<article id="c2-2">
 				<h1>Webfonts</h1>
 
@@ -391,13 +515,19 @@ reset
 				</ul>
 			</article>
 
+			<hr>
+
 			<article id="c2-3">
 				<h1>Vendor tags and evolving standards</h1>
 			</article>
 
+			<hr>
+
 			<article id="c2-4">
 				<h1>Transitions</h1>
 			</article>
+
+			<hr>
 
 			<article id="c2-5">
 				<h1>Transforms</h1>
@@ -423,11 +553,15 @@ reset
 				</ul>
 			</article>
 
+			<hr>
+
 			<article id="c3-2">
 				<h1>Pre&ndash;processed CSS</h1>
 
 				<p>Sass (SCSS)</p>
 			</article>
+
+			<hr>
 
 			<article id="c3-3">
 				<h1>Pre&ndash;processed HTML</h1>
