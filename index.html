@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>HTML/CSS Training</title>
+	<meta name="description" content="Basic HTML and CSS training">
+	<meta name="viewport" content="width=device-width">
+
+	<link rel="stylesheet" href="app.css">
+</head>
+<body>
+
+	<section id="html">
+		<header>
+			<h1>HTML</h1>
+		</header>
+		<nav>
+			<li><a href="#c1-1" data-target="c1-1">The absolute basics</a></li>
+			<li><a href="#c1-2" data-target="c1-2">HTML building blocks</a></li>
+			<li><a href="#c1-3" data-target="c1-3">Attributes</a></li>
+			<li><a href="#c1-4" data-target="c1-4">Building a page</a></li>
+			<li><a href="#c1-5" data-target="c1-5">Character entities</a></li>
+			<li><a href="#c1-6" data-target="c1-6">Better structure with HTML5</a></li>
+		</nav>
+		<section>
+			<article id="c1-1">
+				<h1>The absolute basics</h1>
+
+				<p>HTML (hyper&ndash;text markup language) is the standard way of structuring content on the web. It was proposed by Sir Tim Berners&ndash;Lee in 1989 while he was working as a contractor for CERN in Switzerland. In its earliest form, HTML was designed to be a system for researchers to use and share documents.</p>
+
+				<p>It is a way of structuring words and pictures into blocks, so that software can better present it to the end user.</p>
+
+				<p>The basic units of a HTML page, are called <code>elements</code>, <code>tags</code> or sometimes <code>nodes</code>. Each of these represents a block of content, like a paragraph of text or a table of results or an image.</p>
+
+				<h2>What are web standards?</h2>
+
+				<p>In the earlier versions of HTML (2.0 and 3.2), the browser vendors had complete control over what they chose to include, and how they did it. This meant that a default page with no styling would look completely different from browser to browser. In the early days, browsers even had their own proprietary tags, like Microsoft&rsquo;s <code>marquee</code> or Netscape&rsquo;s <code>blink</code> tag.</p>
+
+				<p><a href="http://www.webstandards.org/">The Web Standards Project</a> began as a campaign to make building web sites more universal, by enforcing consistency on all browsers. The focus of this campaign was to both educate developers in how to follow the standards, as well as publically shaming the browser vendors who did not follow the standards themselves.</p>
+
+				<p>A lot of the lasting antagonism aimed at Microsoft <a href="http://www.positioniseverything.net/explorer.html">stems from</a> this time. Microsoft decided, with the release of Internet Explorer 6, that browsers were done and they didn&rsquo;t need to waste any further time on improving it. A browser called Firefox, an open source project built by a consortium of technology companies (including Microsoft, and later Apple and Google) soon proved that there was room for improvement. In later years, Apple began the Webkit project that now powers their browser Safari as well as Google&rsquo;s Chrome, and the <a href="http://www.quirksmode.org/webkit.html">browser on most smartphones</a>.
+
+				<p><a href="http://validator.w3.org/">Validators</a> were used during this period to check that your code correctly followed the standards. Even now, some organisations are legally obliged to validate their code.</p>
+
+				<h2>Who sets the standards?</h2>
+
+				<p>An organisation <a href="http://www.w3.org/Consortium/Member/List">made up of</a> universities and technology companies, known as the World Wide Web Consortium (W3C). This body governs the standards that browser vendors follow, and define how the web works. A smaller group known as WHATWG (Web Hypertext Application Technology Working Group), with a stronger focus on web companies and the vendors themselves, decided that the W3C was moving too slowly and wrote their own HTML specification, this is what we know as HTML 5.</p>
+
+				<p>The modern web uses parts of several different standards: XML and its parent SGML, XHTML 1.1, HTML 3.2, HTML 4.01 and finally HTML 5. A lot of the <a href="http://msdn.microsoft.com/en-us/expression/dd439540.aspx">stricter rules</a> and <a href="http://www.cs.tut.fi/~jkorpela/HTML3.2/5.24.html">bad habits</a> learned over time came from HTML 3.2 and XHTML 1.1.</p>
+
+				<ul class="ref">
+					<li><a href="http://info.cern.ch/">More history about the web at CERN</a></li>
+					<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML?menu">Mozilla&rsquo;s excellent HTML documentation</a></li>
+				</ul>
+			</article>
+
+			<article id="c1-2">
+				<h1>HTML building blocks</h1>
+
+				<p>All content in a HTML page is marked up within a nested hierarchy of elements. Look at the source of this page!</p>
+
+				<p>There are two main types of element that make up a page: <code>inline</code> and <code>block</code>.</p>
+
+				<h2>Block elements</h2>
+
+				<p>As the name implies, a block&ndash;level element is used to mark up a chunk of content, some of the more common ones are:</p>
+
+				<dl>
+					<dt><code>h1</code></dt><dd>Heading (level 1)</dd>
+					<dt><code>h2</code></dt><dd>Subheading (level 2)</dd>
+					<dt><code>h3&ndash;h5</code></dt><dd>Further subheadings (levels 3&ndash;5)</dd>
+					<dt><code>p</code></dt><dd>Paragraph, the main page block</dd>
+					<dt><code>pre</code></dt><dd>Pre&ndash;formatted block, useful for preserving line breaks</dd>
+					<dt><code>blockquote</code></dt><dd>A block that can be targetted for alternate styling</dd>
+					<dt><code>small</code></dt><dd>The small print</dd>
+					<dt><code>hr</code></dt><dd>Horizontal rule</dd>
+					<dt><code>div</code></dt><dd>A structural division</dd>
+				</dl>
+
+				<p>Lists can be numbered or bulleted, and are made of of their own <code>li</code> (list item) blocks:</p>
+
+				<dl>
+					<dt><code>ol</code></dt><dd>Numbered list</dd>
+					<dt><code>ul</code></dt><dd>Bulleted (unordered) list</dd>
+					<dt><code>li</code></dt><dd>List item</dd>
+				</dl>
+
+				<p>eg.</p>
+
+				<pre>
+&lt;ol&gt;
+  &lt;li&gt;First&lt;/li&gt;
+  &lt;li&gt;Another&lt;/li&gt;
+&lt;/ol&gt;
+				</pre>
+
+				<ol>
+					<li>First</li>
+					<li>Another</li>
+				</ol>
+
+				<p>Another older type exists, called the <code>dl</code> for definition list. This list is sometimes more appropriate when you have content split into key&ndash;value pairs.</p>
+
+				<dl>
+					<dt><code>dl</code></dt><dd>Definition list</dd>
+					<dt><code>dt</code></dt><dd>Term</dd>
+					<dt><code>dd</code></dt><dd>Definition</dd>
+				</dl>
+
+				<p>eg.</p>
+
+				<pre>
+&lt;dl&gt;
+  &lt;dt&gt;Kitten&lt;/dt&gt;&lt;dd&gt;A young cat&lt;/dd&gt;
+  &lt;dt&gt;Puppy&lt;/dt&gt;&lt;dd&gt;A young dog&lt;/dd&gt;
+&lt;/dl&gt;
+				</pre>
+
+				<dl>
+					<dt>Kitten</dt><dd>A young cat</dd>
+					<dt>Puppy</dt><dd>A young dog</dd>
+				</dl>
+
+				<p>And then there&rsquo;s the <code>table</code>. In the early days, tables were often (mis)used as a way of strictly defining layout, but we now have the full range of CSS to do this instead. Tables should only be used to present tabular data! It&rsquo;'s also a lot more complicated than the above structures, as the lowest level blocks describe a cell with a row.</p>
+
+				<dl>
+					<dt><code>table</code></dt><dd>Table</dd>
+					<dt><code>thead</code></dt><dd>Header section</dd>
+					<dt><code>tr</code></dt><dd>Row</dd>
+					<dt><code>th</code></dt><dd>Header cell</dd>
+					<dt><code>tbody</code></dt><dd>Body section</dd>
+					<dt><code>td</code></dt><dd>Cell</dd>
+					<dt><code>tfoot</code></dt><dd>Footer section</dd>
+				</dl>
+
+				<p>eg.</p>
+
+				<pre>
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;State&lt;/th&gt;
+      &lt;th&gt;Abbr&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Victoria&lt;/td&gt;
+      &lt;td&gt;Vic&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Tasmania&lt;/td&gt;
+      &lt;td&gt;Tas&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+				</pre>
+
+				<table>
+					<thead>
+						<tr>
+							<th>State</th>
+							<th>Abbr</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Victoria</td>
+							<td>Vic</td>
+						</tr>
+						<tr>
+							<td>Tasmania</td>
+							<td>Tas</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<h2>Forms</h2>
+
+				<p>Forms are an important way of interacting with the user, but that&rsquo;s a whole training session on its own! For the sake of this session, I&rsquo;m going to skip <code>form</code>, except to mention it as a block&ndash;level element that contains controls that a user can manipulate.</p>
+
+				<h2>Inline elements</h2>
+
+				<p>These elements are intended to sit within a block element, and are mostly used for styling.</p>
+
+				<dl>
+					<dt><code>em</code></dt><dd><em>Italic</em> (emphasis)</dd>
+					<dt><code>strong</code></dt><dd><strong>Bold</strong> (strong emphasis)</dd>
+					<dt><code>span</code></dt><dd>A neutral element that can be targetted for styling</dd>
+					<dt><code>a</code></dt><dd>Anchor, can be used to link to another page or as the target of a link</dd>
+					<dt><code>img</code></dt><dd>Image</dd>
+					<dt><code>sup</code></dt><dd>Superscript <sup>up here</sup></dd>
+					<dt><code>sub</code></dt><dd>Subscript <sub>down here</sub></dd>
+					<dt><code>br</code></dt><dd>Soft line break</dd>
+				</dl>
+
+				<p>Note that even though the default behaviour of an <code>a</code> is inline, it is often used to wrap a block, and can then be set as a block itself (this pattern has been around forever, but no longer breaks any rules in HTML 5).</p>
+
+				<ul class="ref">
+					<li><a href="http://html5doctor.com/element-index">Great, modern reference of HTML elements</a></li>
+				</ul>
+			</article>
+
+			<article id="c1-3">
+				<h1>Attributes</h1>
+
+				<p>Each tag can, optionally, have <code>attributes</code>. These can be used to describe relationships, targets, identifiers or even alternate content.</p>
+
+				<p>The one you will be most familiar with is the <code>href</code> of an <code>a</code>, the link that you are directing this anchor to go to. Also <code>src</code> on an <code>img</code> tells the browser where to look for the image file.</p>
+
+				<pre>
+&lt;a href="http://google.com"&gt;
+  &lt;img src="/images/google.png" alt="Google"&gt;
+&lt;/a&gt;
+				</pre>
+
+				<p>Another one you may have seen is the <code>alt</code> attribute of an <code>img</code> element (often referred to as an <em>alt tag</em>). This is an important accessibility feature that people with disabilities can use to describe what is in the image, if they&rsquo;re not able to visually see it. In many large organisations it is a legal requirement to include appropriate alt attributes on images.</p>
+
+				<p>Two further attributes that will become important when we discuss CSS later are <code>class</code> and <code>id</code>. As a general definition, class can be used on multiple elements while id should always refer to a single element only. More on this later.</p>
+			</article>
+
+			<article id="c1-4">
+				<h1>Building a page</h1>
+
+				<p>A page needs, at minimum, a few elements to tell the browser what this document contains.</p>
+
+				<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;title&gt;<span>HTML/CSS Training</span>&lt;/title&gt;
+  &lt;meta name="description" content="<span>Basic HTML and CSS training</span>"&gt;
+  &lt;meta name="viewport" content="width=device-width"&gt;
+  &lt;link rel="stylesheet" href="<span>app.css</span>"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+<span>&hellip;</span>
+
+  <span>&lt;script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"&gt;&lt;/script&gt;</span>
+  <span>&lt;script src="app.js"&gt;&lt;/script&gt;</span>
+&lt;/body&gt;
+&lt;/html&gt;
+				</pre>
+
+				<ol>
+					<li>The first line sets the <code>doctype</code> of this document, an XML definition that tells the browser what type of document this is. In the past, these were tediously long and referenced a specification from the W3C. Now, all we do is say it&rsquo;s HTML! All browsers that understand HTML 5 will recognise this.</li>
+					<li><code>meta</code> elements are used to describe features of the page, in this case that is uses <code>utf&ndash;8</code> or Unicode as the character set.</li>
+					<li><code>link</code> is a special element used to relate another asset to this document, in this case the stylesheet in a file called <code>app.css</code>.</li>
+					<li>If you are using Javascript on your page, the current best practice is to load it as the last element of your page. This will ensure that loading a large Javascript library will not cause a bottleneck in the page load. <em>There is an exception to this rule!</em> Typekit must always be called from the <code>head</code> section of a document, so that the font assets are downloaded before any content is shown. More on this later.</li>
+				</ol>
+
+				<p>The skeleton of elements shown above is a cut down version of the HTML 5 Boilerplate, an open source project to standardise how an empty page should be set up.</p>
+
+				<ul class="ref">
+					<li><a href="http://html5boilerplate.com/">HTML5 Boilerplate</a></li>
+				</ul>
+			</article>
+
+			<article id="c1-5">
+				<h1>Character entities</h1>
+
+				<p>HTML uses the ampersand character <code>&amp;</code> as a control character, and validators will often complain about ampserands used without being escaped. An escaped ampersand looks like <code>&amp;amp;</code>. Since HTML is built entirely on the use of &lt; and &gt;, these also need to be written as entities <code>&amp;lt;</code> less than and <code>&amp;gt;</code> greater than.</p>
+
+				<p>Another character entity (sometimes referred to as an XML entity) that you may be familiar with is <code>&amp;nbsp;</code> the non&ndash;breaking space. HTML ignores any whitespace after the first, so if you needed to have several spaces in a row you <em>could</em> use this entity. <strong>Don&rsquo;t do this!</strong> This, along with overuse of <code>br</code> tags, is usually a sign that the <em>CSS</em> needs attention, spacing should never be defined in HTML.</p>
+
+				<p>Do not put two spaces at the start of a sentence!</p>
+
+				<h2>Punctuation</h2>
+
+				<p>Punctuation can, and should, be done with character entities. There is an ongoing struggle by designers to educate the difference between a quote <code>&rsquo;</code> and a prime <code>'</code>. Hint: primes are straight, quotes are curly!</p>
+
+				<dl>
+					<dt><code>&amp;ldquo;</code></dt><dd>&ldquo; Left double quote</dd>
+					<dt><code>&amp;rdquo;</code></dt><dd>&rdquo; Right double quote</dd>
+					<dt><code>&amp;lsquo;</code></dt><dd>&lsquo; Left single quote</dd>
+					<dt><code>&amp;rsquo;</code></dt><dd>&rsquo; Right single quote or apostrophe</dd>
+					<dt><code>&amp;ndash;</code></dt><dd>&ndash; En dash (half width)</dd>
+					<dt><code>&amp;mdash;</code></dt><dd>&mdash; Em dash (full width)</dd>
+				</dl>
+
+				<p>There are many useful characters that you can only cleanly use via character entities, such as accented characters for european languages, math symbols, asian characters and even some emoji are supported on certain operating systems (such as &#x2615;). Any character in the Unicode table can be displayed in a HTML page. There are a number of ways to do this, but the easiest is by using the Hex code. eg. The coffee cup emoji is actually Unicode U+2615, we can enter this as <code>&amp;#x2615;</code> on the page. (note: emoji is highly dependent on operating system fonts, so it pretty much only works on Macs!)</p>
+
+				<ul class="ref">
+					<li><a href="http://www.fileformat.info/info/unicode/">Unicode lookup and tables</a></li>
+				</ul>
+			</article>
+
+			<article id="c1-6">
+				<h1>Better structure with HTML5</h1>
+
+				<p>Browsers have included a number of modern additions from HTML 5 to the set of elements that we can use:</p>
+
+				<dl>
+					<dt><code>header</code></dt><dd>Header section</dd>
+					<dt><code>section</code></dt><dd>Structural section</dd>
+					<dt><code>article</code></dt><dd>Self&ndash;contained structural section</dd>
+					<dt><code>footer</code></dt><dd>Footer section</dd>
+					<dt><code>nav</code></dt><dd>Navigation section</dd>
+					<dt><code>aside</code></dt><dd>Breakout section</dd>
+					<dt><code>figure</code></dt><dd>Figure section</dd>
+					<dt><code>figcaption</code></dt><dd>Caption that goes in a figure</dd>
+				</dl>
+
+				<p>Note that, in practice, most of these elements are simply pre&ndash;styled <code>div</code>s. A popular <em>polyfill</em> (a library to replicate new technology on old software) called <code>html5shiv</code> does exactly this for IE6-8 since they do not support these elements.</p>
+
+				<p>Other elements have been reshuffled, given semantic meaning, or had semantic meaning taken away. Occasionally these changes are reversed a few months later. It&rsquo;s not worth worrying about on a day&ndash;to&ndash; basis, but it <em>is</em> worth keeping up, so that you know you&rsquo;re doing the best with what is available!</p>
+
+				<h2>Nested headings</h2>
+
+				<p>A cool new feature of HTML 5 is the ability to restart heading hierarchy within structural sections, ie.</p>
+
+				<pre>
+&lt;section&gt;
+  &lt;h1&gt;Main Heading&lt;/h1&gt;
+  &lt;article&gt;
+    &lt;h1&gt;Article Heading&lt;/h1&gt;
+    &lt;aside&gt;
+      &lt;h1&gt;Heading&lt;/h1&gt;
+    &lt;/aside&gt;
+  &lt;/article&gt;
+  <span>&lt;article&gt;
+    &lt;h1&gt;Next Article Heading&lt;/h1&gt;
+    &lt;aside&gt;
+      &lt;h1&gt;Heading for first aside&lt;/h1&gt;
+    &lt;/aside&gt;
+    &lt;aside&gt;
+      &lt;h1&gt;Heading for second aside&lt;/h1&gt;
+    &lt;/aside&gt;
+  &lt;/article&gt;</span>
+&lt;/section&gt;
+				</pre>
+
+				<p>In the above example, each <code>article</code> has its own <code>h1</code> heading, and each <code>aside</code> within it has its own hierarchy of headings as well. Before HTML 5, there was only one hierarchy of headings, now they are all encapsulated in their own section.</p>
+
+				<h2>Form controls</h2>
+
+				<p>Another major addition in HTML 5 is a larger set of form controls, almost matching what can be done with desktop software. Most of these are not well supported at the moment, but it&rsquo;s worth looking at <a href="http://diveintohtml5.info/forms.html">demonstrations on the web</a> of what we&rsquo;ll be seeing soon. There are some features that have a little broader support, such as <code>placeholder</code> attributes and the <code>search</code> input type, but I would be careful about using these unless you know the audience for your site is only using modern or mobile browsers.</p>
+
+				<ul class="ref">
+					<li><a href="https://github.com/aFarkas/html5shiv">html5shiv on Github</a></li>
+					<li><a href="http://html5doctor.com/">The HTML5 Doctor, really great advice about all the new things</a></li>
+					<li><a href="http://diveintohtml5.info/index.html">A complete HTML5 book online!</a></li>
+					<li><a href="http://www.wufoo.com/html5/">The current state of HTML5 forms</a></li>
+					<li><a href="http://caniuse.com">Browser support tables for HTML5 and CSS3</a></li>
+					<li><a href="http://www.html5rocks.com/en/">Google&rsquo;s HTML5 propaganda page</a></li>
+					<li><a href="http://www.apple.com/html5/">Apple&rsquo;s HTML5 propaganda page</a></li>
+				</ul>
+			</article>
+		</section>
+	</section>
+
+	<section id="css">
+		<header>
+			<h1>CSS</h1>
+		</header>
+		<nav>
+			<li><a href="#c2-1" data-target="c2-1">How to CSS</a></li>
+			<li><a href="#c2-2" data-target="c2-2">Webfonts</a></li>
+			<li><a href="#c2-5" data-target="c2-3">Vendor tags and evolving standards</a></li>
+			<li><a href="#c2-3" data-target="c2-4">Transitions</a></li>
+			<li><a href="#c2-4" data-target="c2-5">Transforms</a></li>
+		</nav>
+		<section>
+			<article id="c2-1">
+				<h1>How to CSS</h1>
+
+reset
+
+				<p><a href="http://necolas.github.io/normalize.css/">Normalize.css</a></p>
+				<p><a href="http://css-tricks.com/">CSS&ndash;Tricks</a></p>
+			</article>
+
+			<article id="c2-2">
+				<h1>Webfonts</h1>
+
+				<p>As the web matures, a lot of the design language from print
+
+					.
+
+				<p>The options for changing typography on the web were severely limited until Typekit was launched in 2009. Typekit, Google Fonts and the new Adobe Edge Webfonts (the free countarpart of Typekit)
+
+				<p>Google fonts, typekit, fontsquirrel, edge webfonts</p>
+
+				<p>Symbol fonts: fontawesome</p>
+
+				<ul class="ref">
+					<li><a href="http://hellohappy.org/beautiful-web-type/">Beautiful Web Type</a></li>
+					<li><a href="http://www.theleagueofmoveabletype.com/">The League of Moveable Type</a></li>
+				</ul>
+			</article>
+
+			<article id="c2-3">
+				<h1>Vendor tags and evolving standards</h1>
+			</article>
+
+			<article id="c2-4">
+				<h1>Transitions</h1>
+			</article>
+
+			<article id="c2-5">
+				<h1>Transforms</h1>
+			</article>
+		</section>
+	</section>
+
+	<section id="bonus">
+		<header>
+			<h1>Bonus Round</h1>
+		</header>
+		<nav>
+			<li><a href="#c3-1" data-target="c3-1">Markdown</a></li>
+			<li><a href="#c3-2" data-target="c3-2">Pre&ndash;processed CSS</a></li>
+			<li><a href="#c3-3" data-target="c3-3">Pre&ndash;processed HTML</a></li>
+		</nav>
+		<section>
+			<article id="c3-1">
+				<h1>Markdown</h1>
+
+				<ul class="ref">
+					<li><a href="http://howtomarkdown.com">http://howtomarkdown.com</a></li>
+				</ul>
+			</article>
+
+			<article id="c3-2">
+				<h1>Pre&ndash;processed CSS</h1>
+
+				<p>Sass (SCSS)</p>
+			</article>
+
+			<article id="c3-3">
+				<h1>Pre&ndash;processed HTML</h1>
+
+				<p>HAML, Yaml, Slim, Liquid</p>
+			</article>
+		</section>
+	</section>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="app.js"></script>
+</body>
+</html>
