@@ -75,7 +75,7 @@ article pre {padding:1em 16px 0; margin-bottom:1em;}
 article pre span {color:#d22;}
 article pre span span {color:#36c;}
 article ol,
-article ul {list-style-position:inside; list-style-type:square;}
+article ul {list-style-position:inside; list-style-type:square; padding-left:1em;}
 article li {padding-bottom:0.4em;}
 
 article table {min-width:20em;}
