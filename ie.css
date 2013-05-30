@@ -1,6 +1,9 @@
 pre,
 code {border-bottom:1px solid rgb(50,50,50); background:#fff;}
+
+section nav a:hover {background:#fff; color:#000;}
 section section {background:rgb(210,223,237);}
+
 article h1 {color:#333;}
 article th,
 .ref {background:#333;}
